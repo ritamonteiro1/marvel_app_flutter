@@ -9,8 +9,10 @@ part of 'character_comics_response.dart';
 CharacterComicsResponse _$CharacterComicsResponseFromJson(
         Map<String, dynamic> json) =>
     CharacterComicsResponse(
-      items: CharacterComicsItemResponse.fromJson(
-          json['items'] as Map<String, dynamic>),
+      items: (json['items'] as List<dynamic>)
+          .map((e) =>
+              CharacterComicsItemResponse.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$CharacterComicsResponseToJson(

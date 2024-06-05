@@ -6,7 +6,7 @@ part 'character_comics_response.g.dart';
 
 @JsonSerializable()
 class CharacterComicsResponse {
-  final CharacterComicsItemResponse items;
+  final List<CharacterComicsItemResponse> items;
 
   CharacterComicsResponse({
     required this.items,
