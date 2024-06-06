@@ -1,6 +1,7 @@
 import '../../domain/model/character_data.dart';
 import '../../domain/model/character_details_data.dart';
 import '../../domain/model/character_list.dart';
+import '../local/model/character_cache.dart';
 import '../remote/model/marvel_data_response.dart';
 import 'marvel_mapper.dart';
 
@@ -50,5 +51,33 @@ class MarvelMapperImpl implements MarvelMapper {
         })
         .toList()
         .first;
+  }
+
+  @override
+  CharacterCache characterDomainToCache({
+    required CharacterDetailsData character,
+  }) {
+    return CharacterCache(
+      id: character.id,
+      name: character.name,
+      description: character.description,
+      modified: character.modified,
+      imageUrl: character.imageUrl,
+      comics: character.comics,
+    );
+  }
+
+  @override
+  CharacterDetailsData characterCacheToDomain({
+    required CharacterCache character,
+  }) {
+    return CharacterDetailsData(
+      id: character.id,
+      name: character.name,
+      description: character.description,
+      modified: character.modified,
+      imageUrl: character.imageUrl,
+      comics: character.comics,
+    );
   }
 }
