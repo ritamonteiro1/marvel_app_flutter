@@ -44,7 +44,7 @@ class MarvelRemoteDataSourceImpl implements MarvelRemoteDataSource {
       var jsonResponse =
           convert.jsonDecode(result.body) as Map<String, dynamic>;
       final marvelResponse = MarvelDataResponse.fromJson(jsonResponse);
-      return _mapper.toDomain(response: marvelResponse);
+      return _mapper.characterListResponseToDomain(response: marvelResponse);
     } catch (e) {
       throw Exception();
     }

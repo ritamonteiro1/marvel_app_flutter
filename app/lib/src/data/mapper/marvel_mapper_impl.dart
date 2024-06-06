@@ -5,7 +5,9 @@ import 'marvel_mapper.dart';
 
 class MarvelMapperImpl implements MarvelMapper {
   @override
-  CharacterList toDomain({required MarvelDataResponse response}) {
+  CharacterList characterListResponseToDomain({
+    required MarvelDataResponse response,
+  }) {
     final data = response.data;
     return CharacterList(
       offset: data.offset,
