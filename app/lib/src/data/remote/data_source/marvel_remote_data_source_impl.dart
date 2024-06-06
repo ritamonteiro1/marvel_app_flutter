@@ -22,7 +22,7 @@ class MarvelRemoteDataSourceImpl implements MarvelRemoteDataSource {
   Future<CharacterList> getCharacterList({required int page}) async {
     const limitPerPage = 10;
     final offset = (page == 1) ? 0 : (limitPerPage * page);
-    final queryParameterTimestamp = DateTime.now().millisecond.toString();
+    final queryParameterTimestamp = DateTime.now().generateTimestamp();
     final hash = (queryParameterTimestamp +
             MarvelEnvironment.privateApiKey +
             MarvelEnvironment.publicApiKey)
@@ -55,7 +55,7 @@ class MarvelRemoteDataSourceImpl implements MarvelRemoteDataSource {
   Future<CharacterDetailsData> getCharacterDetails({
     required int characterId,
   }) async {
-    final queryParameterTimestamp = DateTime.now().millisecond.toString();
+    final queryParameterTimestamp = DateTime.now().generateTimestamp();
     final hash = (queryParameterTimestamp +
             MarvelEnvironment.privateApiKey +
             MarvelEnvironment.publicApiKey)
