@@ -31,4 +31,9 @@ class MarvelRepositoryImpl implements MarvelRepository {
     );
     return character;
   }
+
+  @override
+  Future<List<CharacterDetailsData>> getFavoriteCharacters() async {
+    return await _localDataSource.getFavoriteCharacters();
+  }
 }

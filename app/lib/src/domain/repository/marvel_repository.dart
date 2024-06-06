@@ -5,4 +5,6 @@ abstract interface class MarvelRepository {
   Future<CharacterList> getCharacterList({required int page});
 
   Future<CharacterDetailsData> getCharacterDetails({required int characterId});
+
+  Future<List<CharacterDetailsData>> getFavoriteCharacters();
 }
