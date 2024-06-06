@@ -13,11 +13,11 @@ import '../ui/home/home_screen.dart';
 abstract class MarvelRoutes {
   static GoRouter router = GoRouter(
     debugLogDiagnostics: kDebugMode,
-    initialLocation: home,
+    initialLocation: _home,
     routes: [
       GoRoute(
-        name: home,
-        path: home,
+        name: _home,
+        path: _home,
         builder: (context, state) {
           return BlocProvider<HomeBloc>(
             create: (context) => GetIt.instance.get(),
@@ -26,18 +26,22 @@ abstract class MarvelRoutes {
         },
         routes: [
           GoRoute(
-            name: characterDetails,
-            path: characterDetails,
+            name: _characterDetails,
+            path: '$_characterDetails/:characterId',
             builder: (context, state) {
+              final characterId =
+                  int.tryParse(state.pathParameters['characterId'] ?? '0') ?? 0;
               return BlocProvider<CharacterDetailsBloc>(
                 create: (context) => GetIt.instance.get(),
-                child: const CharacterDetailsScreen(),
+                child: CharacterDetailsScreen(
+                  characterId: characterId,
+                ),
               );
             },
           ),
           GoRoute(
-            name: favoriteCharacters,
-            path: favoriteCharacters,
+            name: _favoriteCharacters,
+            path: _favoriteCharacters,
             builder: (context, state) {
               return BlocProvider<FavoriteCharactersBloc>(
                 create: (context) => GetIt.instance.get(),
@@ -49,8 +53,20 @@ abstract class MarvelRoutes {
       ),
     ],
   );
-
-  static const home = '/';
-  static const favoriteCharacters = 'favoriteCharacters';
-  static const characterDetails = 'characterDetails';
 }
+
+extension MarvelRoutesExtensions on GoRouter {
+  void navigateToCharacterDetailsScreen({required int characterId}) {
+    pushNamed(_characterDetails, pathParameters: {
+      'characterId': '$characterId',
+    });
+  }
+
+  void navigateToFavoriteCharactersScreen() {
+    pushNamed(_favoriteCharacters);
+  }
+}
+
+const _home = '/';
+const _favoriteCharacters = 'favoriteCharacters';
+const _characterDetails = 'characterDetails';
