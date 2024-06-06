@@ -3,6 +3,7 @@ import 'dart:convert' as convert;
 import 'package:core/core.dart';
 import 'package:http/http.dart' as http;
 
+import '../../../domain/model/character_details_data.dart';
 import '../../../domain/model/character_list.dart';
 import '../../mapper/marvel_mapper.dart';
 import '../model/marvel_data_response.dart';
@@ -45,6 +46,37 @@ class MarvelRemoteDataSourceImpl implements MarvelRemoteDataSource {
           convert.jsonDecode(result.body) as Map<String, dynamic>;
       final marvelResponse = MarvelDataResponse.fromJson(jsonResponse);
       return _mapper.characterListResponseToDomain(response: marvelResponse);
+    } catch (e) {
+      throw Exception();
+    }
+  }
+
+  @override
+  Future<CharacterDetailsData> getCharacterDetails({
+    required int characterId,
+  }) async {
+    final queryParameterTimestamp = DateTime.now().millisecond.toString();
+    final hash = (queryParameterTimestamp +
+            MarvelEnvironment.privateApiKey +
+            MarvelEnvironment.publicApiKey)
+        .generateHash();
+
+    try {
+      final uri = Uri.https(
+        MarvelApiConstants.baseUrl,
+        '${MarvelApiConstants.endpointCharacterList}/$characterId',
+        {
+          'ts': queryParameterTimestamp,
+          'apikey': MarvelEnvironment.publicApiKey,
+          'hash': hash,
+        },
+      );
+
+      final result = await http.get(uri);
+      var jsonResponse =
+          convert.jsonDecode(result.body) as Map<String, dynamic>;
+      final marvelResponse = MarvelDataResponse.fromJson(jsonResponse);
+      return _mapper.characterDetailsResponseToDomain(response: marvelResponse);
     } catch (e) {
       throw Exception();
     }
