@@ -5,7 +5,7 @@ class CharacterDetailsData {
   final String modified;
   final String imageUrl;
   final List<String> comics;
-  final bool isFavorite;
+  bool isFavorite;
 
   CharacterDetailsData({
     required this.id,
