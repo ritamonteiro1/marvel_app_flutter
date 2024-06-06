@@ -36,4 +36,15 @@ class MarvelRepositoryImpl implements MarvelRepository {
   Future<List<CharacterDetailsData>> getFavoriteCharacters() async {
     return await _localDataSource.getFavoriteCharacters();
   }
+
+  @override
+  Future<void> toggleFavoriteCharacter({
+    required CharacterDetailsData character,
+  }) async {
+    if (character.isFavorite) {
+      await _localDataSource.removeCharacter(characterId: character.id);
+    } else {
+      await _localDataSource.saveCharacter(character: character);
+    }
+  }
 }
