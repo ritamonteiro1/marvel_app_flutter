@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 
+import '../bloc/details/character_details_bloc.dart';
 import '../bloc/favorite/favorite_characters_bloc.dart';
 import '../bloc/home/home_bloc.dart';
 import '../ui/details/character_details_screen.dart';
@@ -28,7 +29,10 @@ abstract class MarvelRoutes {
             name: characterDetails,
             path: characterDetails,
             builder: (context, state) {
-              return const CharacterDetailsScreen();
+              return BlocProvider<CharacterDetailsBloc>(
+                create: (context) => GetIt.instance.get(),
+                child: const CharacterDetailsScreen(),
+              );
             },
           ),
           GoRoute(
