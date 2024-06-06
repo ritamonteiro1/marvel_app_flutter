@@ -1,7 +1,7 @@
-import 'package:app/src/presentation/bloc/home/home_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../bloc/home/home_bloc.dart';
 import '../../bloc/home/home_event.dart';
 import '../../bloc/home/home_state.dart';
 

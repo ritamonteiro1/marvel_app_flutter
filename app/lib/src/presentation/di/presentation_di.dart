@@ -1,5 +1,6 @@
-import 'package:app/src/presentation/bloc/home/home_bloc.dart';
 import 'package:get_it/get_it.dart';
+
+import '../bloc/home/home_bloc.dart';
 
 void presentationDI() {
   final getIt = GetIt.instance;

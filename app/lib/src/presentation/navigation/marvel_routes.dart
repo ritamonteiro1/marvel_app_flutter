@@ -1,11 +1,12 @@
-import 'package:app/src/presentation/bloc/home/home_bloc.dart';
-import 'package:app/src/presentation/ui/details/character_details_screen.dart';
-import 'package:app/src/presentation/ui/favorite/favorite_characters_screen.dart';
-import 'package:app/src/presentation/ui/home/home_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
+
+import '../bloc/home/home_bloc.dart';
+import '../ui/details/character_details_screen.dart';
+import '../ui/favorite/favorite_characters_screen.dart';
+import '../ui/home/home_screen.dart';
 
 abstract class MarvelRoutes {
   static GoRouter router = GoRouter(
