@@ -5,6 +5,7 @@ class CharacterDetailsData {
   final String modified;
   final String imageUrl;
   final List<String> comics;
+  final bool isFavorite;
 
   CharacterDetailsData({
     required this.id,
@@ -13,5 +14,6 @@ class CharacterDetailsData {
     required this.modified,
     required this.imageUrl,
     required this.comics,
+    this.isFavorite = false,
   });
 }
