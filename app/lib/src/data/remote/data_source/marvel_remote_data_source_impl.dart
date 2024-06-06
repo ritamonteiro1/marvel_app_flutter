@@ -4,26 +4,29 @@ import 'package:core/core.dart';
 import 'package:http/http.dart' as http;
 
 import '../../../domain/model/character_list.dart';
-import '../../../utils/marvel_environment.dart';
 import '../../mapper/marvel_mapper.dart';
 import '../model/marvel_data_response.dart';
 import 'api_constants/marvel_api_constants.dart';
+import 'environment/marvel_environment.dart';
 import 'marvel_remote_data_source.dart';
 
 class MarvelRemoteDataSourceImpl implements MarvelRemoteDataSource {
-  final MarvelMapper mapper;
+  final MarvelMapper _mapper;
 
   MarvelRemoteDataSourceImpl({
-    required this.mapper,
-  });
+    required MarvelMapper mapper,
+  }) : _mapper = mapper;
 
   @override
-  Future<CharacterList> getCharacterList() async {
-    const queryParameterTimestamp = '1';
+  Future<CharacterList> getCharacterList({required int page}) async {
+    const limitPerPage = 10;
+    final offset = (page == 1) ? 0 : (limitPerPage * page);
+    final queryParameterTimestamp = DateTime.now().millisecond.toString();
     final hash = (queryParameterTimestamp +
             MarvelEnvironment.privateApiKey +
             MarvelEnvironment.publicApiKey)
         .generateHash();
+
     try {
       final uri = Uri.https(
         MarvelApiConstants.baseUrl,
@@ -31,7 +34,9 @@ class MarvelRemoteDataSourceImpl implements MarvelRemoteDataSource {
         {
           'ts': queryParameterTimestamp,
           'apikey': MarvelEnvironment.publicApiKey,
-          'hash': hash
+          'hash': hash,
+          'limit': limitPerPage.toString(),
+          'offset': offset.toString(),
         },
       );
 
@@ -39,7 +44,7 @@ class MarvelRemoteDataSourceImpl implements MarvelRemoteDataSource {
       var jsonResponse =
           convert.jsonDecode(result.body) as Map<String, dynamic>;
       final marvelResponse = MarvelDataResponse.fromJson(jsonResponse);
-      return mapper.toDomain(response: marvelResponse);
+      return _mapper.toDomain(response: marvelResponse);
     } catch (e) {
       throw Exception();
     }
