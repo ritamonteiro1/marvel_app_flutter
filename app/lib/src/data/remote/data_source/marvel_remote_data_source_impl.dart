@@ -20,7 +20,7 @@ class MarvelRemoteDataSourceImpl implements MarvelRemoteDataSource {
 
   @override
   Future<CharacterList> getCharacterList({required int page}) async {
-    const limitPerPage = 10;
+    const limitPerPage = 20;
     final offset = (page == 1) ? 0 : (limitPerPage * page);
     final queryParameterTimestamp = DateTime.now().generateTimestamp();
     final hash = (queryParameterTimestamp +
