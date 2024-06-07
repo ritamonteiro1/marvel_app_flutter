@@ -1,8 +1,10 @@
 import 'dart:convert' as convert;
+import 'dart:io';
 
 import 'package:core/core.dart';
 import 'package:http/http.dart' as http;
 
+import '../../../domain/exceptions/marvel_exceptions.dart';
 import '../../../domain/model/character_details_data.dart';
 import '../../../domain/model/character_list.dart';
 import '../../mapper/marvel_mapper.dart';
@@ -47,7 +49,10 @@ class MarvelRemoteDataSourceImpl implements MarvelRemoteDataSource {
       final marvelResponse = MarvelDataResponse.fromJson(jsonResponse);
       return _mapper.characterListResponseToDomain(response: marvelResponse);
     } catch (e) {
-      throw Exception();
+      if (e is SocketException) {
+        throw NetworkErrorException();
+      }
+      throw GenericErrorException();
     }
   }
 
@@ -78,7 +83,10 @@ class MarvelRemoteDataSourceImpl implements MarvelRemoteDataSource {
       final marvelResponse = MarvelDataResponse.fromJson(jsonResponse);
       return _mapper.characterDetailsResponseToDomain(response: marvelResponse);
     } catch (e) {
-      throw Exception();
+      if (e is SocketException) {
+        throw NetworkErrorException();
+      }
+      throw GenericErrorException();
     }
   }
 }
