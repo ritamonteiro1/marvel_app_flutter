@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:internationalization/internationalization.dart';
 
 class FavoriteCharactersScreen extends StatefulWidget {
   const FavoriteCharactersScreen({super.key});
@@ -11,6 +12,10 @@ class FavoriteCharactersScreen extends StatefulWidget {
 class _FavoriteCharactersScreenState extends State<FavoriteCharactersScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+        appBar: AppBar(
+      title: Text(
+          MarvelStrings.of(context).app_bar_title_favorite_characters_screen),
+    ));
   }
 }

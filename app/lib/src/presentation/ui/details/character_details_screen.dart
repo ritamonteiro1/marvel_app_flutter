@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:internationalization/internationalization.dart';
 
 class CharacterDetailsScreen extends StatefulWidget {
   const CharacterDetailsScreen({
@@ -16,8 +17,9 @@ class _CharacterDetailsScreenState extends State<CharacterDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text(widget.characterId.toString()),
+      appBar: AppBar(
+        title: Text(
+            MarvelStrings.of(context).app_bar_title_character_details_screen),
       ),
     );
   }
