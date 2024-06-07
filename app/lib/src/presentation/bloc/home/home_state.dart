@@ -25,3 +25,5 @@ class SuccessRequestingCharacters extends HomeState {
 class GenericErrorRequestingCharacters extends HomeState {}
 
 class NetworkErrorRequestingCharacters extends HomeState {}
+
+class TryRequestingCharactersAgain extends HomeState {}

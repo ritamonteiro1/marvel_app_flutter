@@ -15,6 +15,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         super(InitialState()) {
     on<RequestCharacterList>(_requestCharacterList);
     on<RequestMoreCharacterList>(_requestMoreCharacterList);
+    on<TryRequestCharacterListAgain>(_tryRequestCharacterListAgain);
   }
 
   int _characterListPage = 1;
@@ -28,22 +29,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     Emitter<HomeState> emit,
   ) async {
     try {
-      final charactersResult = await _getCharacterListUseCase.call(
-        page: _characterListPage,
-      );
-      final characters = charactersResult.characterList;
-      _characterHorizontalList.addAll(characters.sublist(
-        0,
-        _characterHorizontalListLength,
-      ));
-      _characterVerticalList.addAll(characters.sublist(
-        _characterHorizontalListLength,
-      ));
-      _characterListPage++;
-      emit(SuccessRequestingCharacters(
-        characterHorizontalList: _characterHorizontalList,
-        characterVerticalList: _characterVerticalList,
-      ));
+      await _requestCharacters(emit);
     } catch (e) {
       _handleErrorRequestingCharacters(e, emit);
     }
@@ -67,32 +53,57 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       isLoadingMore: true,
     ));
     try {
-      final charactersResult = await _getCharacterListUseCase.call(
-        page: _characterListPage,
-      );
-      _characterVerticalList.addAll(charactersResult.characterList);
-      _characterListPage++;
-      _checkIfPagesAreFinished(
-        totalCharactersCurrently: charactersResult.offset,
-        totalCharacters: charactersResult.total,
-      );
-      emit(SuccessRequestingCharacters(
-        characterHorizontalList: _characterHorizontalList,
-        characterVerticalList: _characterVerticalList,
-        isLoadingMore: false,
-      ));
+      await _requestMoreCharacters(emit);
     } catch (e) {
       _handleErrorRequestingMoreCharacters(e, emit);
     }
   }
 
-  void _checkIfPagesAreFinished({
-    required int totalCharactersCurrently,
-    required int totalCharacters,
-  }) {
-    if (totalCharactersCurrently == totalCharacters) {
+  Future<void> _requestMoreCharacters(Emitter<HomeState> emit) async {
+    final charactersResult = await _getCharacterListUseCase.call(
+      page: _characterListPage,
+    );
+    _characterVerticalList.addAll(charactersResult.characterList);
+    _characterListPage++;
+    if (charactersResult.offset == charactersResult.total) {
       _hasFinishedPage = true;
     }
+    emit(SuccessRequestingCharacters(
+      characterHorizontalList: _characterHorizontalList,
+      characterVerticalList: _characterVerticalList,
+      isLoadingMore: false,
+    ));
+  }
+
+  Future<void> _tryRequestCharacterListAgain(
+    TryRequestCharacterListAgain event,
+    Emitter<HomeState> emit,
+  ) async {
+    emit(TryRequestingCharactersAgain());
+    try {
+      await _requestCharacters(emit);
+    } catch (e) {
+      _handleErrorRequestingCharacters(e, emit);
+    }
+  }
+
+  Future<void> _requestCharacters(Emitter<HomeState> emit) async {
+    final charactersResult = await _getCharacterListUseCase.call(
+      page: _characterListPage,
+    );
+    final characters = charactersResult.characterList;
+    _characterHorizontalList.addAll(characters.sublist(
+      0,
+      _characterHorizontalListLength,
+    ));
+    _characterVerticalList.addAll(characters.sublist(
+      _characterHorizontalListLength,
+    ));
+    _characterListPage++;
+    emit(SuccessRequestingCharacters(
+      characterHorizontalList: _characterHorizontalList,
+      characterVerticalList: _characterVerticalList,
+    ));
   }
 
   void _handleErrorRequestingCharacters(Object e, Emitter<HomeState> emit) {
