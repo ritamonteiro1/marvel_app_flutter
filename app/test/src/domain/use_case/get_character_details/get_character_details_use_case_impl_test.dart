@@ -1,9 +1,9 @@
 import 'package:app/src/domain/repository/marvel_repository.dart';
 import 'package:app/src/domain/use_case/get_character_details/get_character_details_use_case.dart';
 import 'package:app/src/domain/use_case/get_character_details/get_character_details_use_case_impl.dart';
-import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+import 'package:test/test.dart';
 
 import '../../../../resources/test_resources.dart';
 import 'get_character_details_use_case_impl_test.mocks.dart';

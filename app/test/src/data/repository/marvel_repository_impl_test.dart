@@ -3,9 +3,9 @@ import 'package:app/src/data/remote/data_source/marvel_remote_data_source.dart';
 import 'package:app/src/data/repository/marvel_repository_impl.dart';
 import 'package:app/src/domain/exceptions/marvel_exceptions.dart';
 import 'package:app/src/domain/repository/marvel_repository.dart';
-import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+import 'package:test/test.dart';
 
 import '../../../resources/test_resources.dart';
 import 'marvel_repository_impl_test.mocks.dart';
@@ -75,6 +75,15 @@ void main() {
       expect(() => repository.getCharacterList(page: 1),
           throwsA(isA<NetworkErrorException>()));
     });
+    test(
+        'GIVEN a call '
+        'WHEN remote data source is called and throws GenericErrorException '
+        'THEN repository should throws GenericErrorException', () async {
+      when(mockRemoteDataSource.getCharacterList(page: 1))
+          .thenThrow(GenericErrorException());
+      expect(() => repository.getCharacterList(page: 1),
+          throwsA(isA<GenericErrorException>()));
+    });
   });
 
   group('getCharacterDetails', () {
@@ -132,6 +141,28 @@ void main() {
           await repository.getCharacterDetails(characterId: 1);
       expect(characterDetails.isFavorite, true);
     });
+    test(
+        'GIVEN a call '
+        'WHEN remote data source is called and throws NetworkErrorException '
+        'THEN repository should throws NetworkErrorException', () async {
+      when(mockRemoteDataSource.getCharacterDetails(characterId: 1))
+          .thenThrow(NetworkErrorException());
+      when(mockLocalDataSource.verifyIfCharacterIsFavorite(characterId: 1))
+          .thenAnswer((_) async => true);
+      expect(() => repository.getCharacterDetails(characterId: 1),
+          throwsA(isA<NetworkErrorException>()));
+    });
+    test(
+        'GIVEN a call '
+        'WHEN remote data source is called and throws GenericErrorException '
+        'THEN repository should throws GenericErrorException', () async {
+      when(mockRemoteDataSource.getCharacterDetails(characterId: 1))
+          .thenThrow(GenericErrorException());
+      when(mockLocalDataSource.verifyIfCharacterIsFavorite(characterId: 1))
+          .thenAnswer((_) async => true);
+      expect(() => repository.getCharacterDetails(characterId: 1),
+          throwsA(isA<GenericErrorException>()));
+    });
   });
 
   group('getFavoriteCharacters', () {
@@ -178,6 +209,16 @@ void main() {
         character: TestResources.favoriteCharacterDetails,
       );
       verify(mockLocalDataSource.removeCharacter(characterId: 1)).called(1);
+    });
+    test(
+        'GIVEN a call '
+        'WHEN repository is called and character is favorite'
+        'THEN local data source to save character should not calls', () async {
+      when(mockLocalDataSource.removeCharacter(characterId: 1))
+          .thenAnswer((_) async => _);
+      await repository.toggleFavoriteCharacter(
+        character: TestResources.favoriteCharacterDetails,
+      );
       verifyNever(mockLocalDataSource.saveCharacter(
         character: TestResources.favoriteCharacterDetails,
       ));
