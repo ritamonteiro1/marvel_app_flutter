@@ -29,7 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "app_bar_title_home_screen":
             MessageLookupByLibrary.simpleMessage("Characters"),
         "app_name": MessageLookupByLibrary.simpleMessage("Marvel App"),
-        "comics_text": MessageLookupByLibrary.simpleMessage("Comics"),
+        "comics_text": MessageLookupByLibrary.simpleMessage("Comics:"),
         "message_generic_error":
             MessageLookupByLibrary.simpleMessage("Ops!\nAn error occurred"),
         "message_network_error":

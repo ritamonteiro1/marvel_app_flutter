@@ -150,10 +150,10 @@ class MarvelStrings {
     );
   }
 
-  /// `Comics`
+  /// `Comics:`
   String get comics_text {
     return Intl.message(
-      'Comics',
+      'Comics:',
       name: 'comics_text',
       desc: '',
       args: [],
