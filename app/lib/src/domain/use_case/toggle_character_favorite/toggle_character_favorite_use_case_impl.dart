@@ -12,7 +12,6 @@ class ToggleCharacterFavoriteUseCaseImpl
 
   @override
   Future<void> call({required CharacterDetailsData character}) async {
-    // TODO: implement call
-    throw UnimplementedError();
+    await _repository.toggleFavoriteCharacter(character: character);
   }
 }

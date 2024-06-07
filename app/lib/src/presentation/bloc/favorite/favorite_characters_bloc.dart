@@ -13,12 +13,36 @@ class FavoriteCharactersBloc
   })  : _getFavoriteCharactersUseCase = getFavoriteCharactersUseCase,
         super(InitialState()) {
     on<RequestFavoriteCharacters>(_requestFavoriteCharacters);
+    on<TryRequestFavoriteCharactersAgain>(_tryRequestFavoritesAgain);
   }
 
   Future<void> _requestFavoriteCharacters(
     RequestFavoriteCharacters event,
     Emitter<FavoriteCharactersState> emit,
   ) async {
+    try {
+      await _requestFavorites(emit);
+    } catch (e) {
+      emit(GenericErrorRequestingFavorites());
+    }
+  }
+
+  Future<void> _requestFavorites(
+    Emitter<FavoriteCharactersState> emit,
+  ) async {
     final characters = await _getFavoriteCharactersUseCase.call();
+    emit(SuccessfullyRequestingFavorites(characters: characters));
+  }
+
+  Future<void> _tryRequestFavoritesAgain(
+    TryRequestFavoriteCharactersAgain event,
+    Emitter<FavoriteCharactersState> emit,
+  ) async {
+    emit(TryRequestingFavoritesAgain());
+    try {
+      await _requestFavorites(emit);
+    } catch (e) {
+      emit(GenericErrorRequestingFavorites());
+    }
   }
 }
