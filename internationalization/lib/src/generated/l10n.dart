@@ -139,6 +139,26 @@ class MarvelStrings {
       args: [],
     );
   }
+
+  /// `No favorite characters`
+  String get message_no_favorite_characters {
+    return Intl.message(
+      'No favorite characters',
+      name: 'message_no_favorite_characters',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Comics`
+  String get comics_text {
+    return Intl.message(
+      'Comics',
+      name: 'comics_text',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<MarvelStrings> {

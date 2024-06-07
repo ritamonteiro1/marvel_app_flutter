@@ -12,5 +12,7 @@
   "message_network_error": "Ops!\nConnection fail",
   "message_no_more_characters": "List ends here",
   "message_try_again": "Try again",
-  "message_trying_again": "Trying again..."
+  "message_trying_again": "Trying again...",
+  "message_no_favorite_characters": "No favorite characters",
+  "comics_text": "Comics"
 }
