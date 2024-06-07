@@ -59,6 +59,36 @@ class MarvelStrings {
       args: [],
     );
   }
+
+  /// `Characters`
+  String get app_bar_title_home_screen {
+    return Intl.message(
+      'Characters',
+      name: 'app_bar_title_home_screen',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Character Details`
+  String get app_bar_title_character_details_screen {
+    return Intl.message(
+      'Character Details',
+      name: 'app_bar_title_character_details_screen',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Favorite Characters`
+  String get app_bar_title_favorite_characters_screen {
+    return Intl.message(
+      'Favorite Characters',
+      name: 'app_bar_title_favorite_characters_screen',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<MarvelStrings> {
@@ -66,7 +96,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<MarvelStrings> {
 
   List<Locale> get supportedLocales {
     return const <Locale>[
-      Locale.fromSubtags(languageCode: 'pt', countryCode: 'BR'),
+      Locale.fromSubtags(languageCode: 'en', countryCode: 'US'),
     ];
   }
 

@@ -1,8 +1,0 @@
-{
-  "@_NAMING_CONVENTION": {
-    "<module>_<component or screen>_<key>": "",
-    "<module>_<key>": "",
-    "common_<key>": ""
-  },
-  "app_name": "Marvel App"
-}

@@ -1,0 +1,11 @@
+{
+  "@_NAMING_CONVENTION": {
+    "<module>_<component or screen>_<key>": "",
+    "<module>_<key>": "",
+    "common_<key>": ""
+  },
+  "app_name": "Marvel App",
+  "app_bar_title_home_screen": "Characters",
+  "app_bar_title_character_details_screen": "Character Details",
+  "app_bar_title_favorite_characters_screen": "Favorite Characters"
+}
