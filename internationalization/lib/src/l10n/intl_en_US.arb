@@ -7,5 +7,10 @@
   "app_name": "Marvel App",
   "app_bar_title_home_screen": "Characters",
   "app_bar_title_character_details_screen": "Character Details",
-  "app_bar_title_favorite_characters_screen": "Favorite Characters"
+  "app_bar_title_favorite_characters_screen": "Favorite Characters",
+  "message_generic_error": "Ops!\nAn error occurred",
+  "message_network_error": "Ops!\nConnection fail",
+  "message_no_more_characters": "List ends here",
+  "message_try_again": "Try again",
+  "message_trying_again": "Trying again..."
 }

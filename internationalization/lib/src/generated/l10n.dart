@@ -89,6 +89,56 @@ class MarvelStrings {
       args: [],
     );
   }
+
+  /// `Ops!\nAn error occurred`
+  String get message_generic_error {
+    return Intl.message(
+      'Ops!\nAn error occurred',
+      name: 'message_generic_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ops!\nConnection fail`
+  String get message_network_error {
+    return Intl.message(
+      'Ops!\nConnection fail',
+      name: 'message_network_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `List ends here`
+  String get message_no_more_characters {
+    return Intl.message(
+      'List ends here',
+      name: 'message_no_more_characters',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Try again`
+  String get message_try_again {
+    return Intl.message(
+      'Try again',
+      name: 'message_try_again',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Trying again...`
+  String get message_trying_again {
+    return Intl.message(
+      'Trying again...',
+      name: 'message_trying_again',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<MarvelStrings> {
