@@ -5,6 +5,9 @@ import 'package:internationalization/internationalization.dart';
 
 import '../../../bloc/home/home_state.dart';
 import '../../../navigation/marvel_routes.dart';
+import 'character_horizontal_list.dart';
+import 'character_vertical_list.dart';
+import 'warning_text.dart';
 
 class SuccessfullyCharacterList extends StatefulWidget {
   const SuccessfullyCharacterList({
@@ -33,7 +36,6 @@ class _SuccessfullyCharacterListState extends State<SuccessfullyCharacterList> {
     final theme = Theme.of(context);
     final colors = theme.extension<MarvelColors>()!;
     final goRouter = GoRouter.of(context);
-    final typography = theme.extension<MarvelTypography>()!;
 
     return Scaffold(
       appBar: AppBar(
@@ -50,9 +52,11 @@ class _SuccessfullyCharacterListState extends State<SuccessfullyCharacterList> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: colors.primary,
         onPressed: () {
           widget.floatingActionButtonOnClick.call();
         },
+        foregroundColor: colors.background,
         child: const Icon(Icons.arrow_upward),
       ),
       body: SafeArea(
@@ -67,65 +71,39 @@ class _SuccessfullyCharacterListState extends State<SuccessfullyCharacterList> {
                 const SizedBox(height: MarvelSpacing.x300),
                 SizedBox(
                   height: 200,
-                  child: ListView.builder(
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    itemCount: characterHorizontalList.length,
-                    itemBuilder: (context, index) {
-                      final character = characterHorizontalList[index];
-                      return CardPrimary.vertical(
-                        text: character.name,
-                        onClick: () {
-                          goRouter.navigateToCharacterDetailsScreen(
-                            characterId: character.id,
-                          );
-                        },
-                        imageUrl: character.imageUrl,
-                        imageHeight: 100,
-                        imageWidth: 100,
+                  child: CharacterHorizontalList(
+                    list: characterHorizontalList,
+                    onClickCard: (int characterId) {
+                      goRouter.navigateToCharacterDetailsScreen(
+                        characterId: characterId,
                       );
                     },
                   ),
                 ),
                 const SizedBox(height: MarvelSpacing.x400),
-                ListView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  primary: false,
-                  scrollDirection: Axis.vertical,
-                  itemCount: characterVerticalList.length,
-                  itemBuilder: (context, index) {
-                    final character = characterVerticalList[index];
-
-                    return CardPrimary(
-                      text: character.name,
-                      onClick: () {
-                        goRouter.navigateToCharacterDetailsScreen(
-                          characterId: character.id,
-                        );
-                      },
-                      imageUrl: character.imageUrl,
-                      imageHeight: 100,
-                      imageWidth: 100,
+                CharacterVerticalList(
+                  list: characterVerticalList,
+                  onClickCard: (int characterId) {
+                    goRouter.navigateToCharacterDetailsScreen(
+                      characterId: characterId,
                     );
                   },
                 ),
                 const SizedBox(height: MarvelSpacing.x300),
-                Visibility(
-                  visible: state.hasNetworkErrorRequestingMore,
-                  child: Text(strings.message_network_error),
+                WarningText(
+                  isVisible: state.hasNetworkErrorRequestingMore,
+                  message: strings.message_network_error,
                 ),
-                Visibility(
-                  visible: state.hasGenericErrorRequestingMore,
-                  child: Text(strings.message_generic_error),
-                ),
-                Visibility(
-                  visible: state.hasFinishedPages,
-                  child: Text(strings.message_no_more_characters),
+                WarningText(
+                    isVisible: state.hasGenericErrorRequestingMore,
+                    message: strings.message_generic_error),
+                WarningText(
+                  isVisible: state.hasFinishedPages,
+                  message: strings.message_no_more_characters,
                 ),
                 Visibility(
                   visible: state.isLoadingMore,
-                  child: const CircularProgressIndicator(),
+                  child: CircularProgressIndicator(color: colors.primary),
                 ),
                 const SizedBox(height: MarvelSpacing.x300),
               ],
