@@ -18,7 +18,6 @@ class CharacterVerticalList extends StatelessWidget {
     return ListView.builder(
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
-      primary: false,
       scrollDirection: Axis.vertical,
       itemCount: list.length,
       itemBuilder: (context, index) {
