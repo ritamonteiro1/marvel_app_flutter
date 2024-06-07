@@ -37,6 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.6
   design_system:
     path: ../design_system
+  internationalization:
+    path: ../internationalization
   widgetbook: ^3.7.1
 
 dev_dependencies:
@@ -63,7 +65,6 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

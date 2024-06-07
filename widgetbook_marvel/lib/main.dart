@@ -1,5 +1,6 @@
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
+import 'package:internationalization/internationalization.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 import 'src/components.dart';
@@ -36,9 +37,19 @@ class WidgetBookMarvel extends StatelessWidget {
           ],
           initialDevice: Devices.android.mediumPhone,
         ),
+        LocalizationAddon(
+          locales: MarvelStrings.delegate.supportedLocales,
+          localizationsDelegates: const [
+            MarvelStrings.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+        ),
       ],
       directories: [
         CardPrimaryComponent(),
+        ScaffoldsComponent(),
       ],
     );
   }
