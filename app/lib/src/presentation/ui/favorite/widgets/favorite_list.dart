@@ -19,6 +19,7 @@ class FavoriteList extends StatelessWidget {
     final strings = MarvelStrings.of(context);
     final theme = Theme.of(context);
     final typography = theme.extension<MarvelTypography>()!;
+    final sizeCard = MediaQuery.of(context).size.width * 0.4;
 
     return list.isNotEmpty
         ? ListView.builder(
@@ -33,8 +34,8 @@ class FavoriteList extends StatelessWidget {
                   onClickCard.call(character.id);
                 },
                 imageUrl: character.imageUrl,
-                imageHeight: 120,
-                imageWidth: 120,
+                imageHeight: sizeCard,
+                imageWidth: sizeCard,
               );
             },
           )

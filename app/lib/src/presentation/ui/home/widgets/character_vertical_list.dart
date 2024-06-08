@@ -15,6 +15,8 @@ class CharacterVerticalList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final sizeCard = MediaQuery.of(context).size.width * 0.4;
+
     return ListView.separated(
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
@@ -29,8 +31,8 @@ class CharacterVerticalList extends StatelessWidget {
             onClickCard.call(character.id);
           },
           imageUrl: character.imageUrl,
-          imageHeight: 120,
-          imageWidth: 120,
+          imageHeight: sizeCard,
+          imageWidth: sizeCard,
         );
       },
       separatorBuilder: (context, index) {

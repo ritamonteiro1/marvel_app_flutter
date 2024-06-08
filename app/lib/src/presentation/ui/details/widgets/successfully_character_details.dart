@@ -23,6 +23,7 @@ class SuccessfullyCharacterDetails extends StatelessWidget {
     final colors = theme.extension<MarvelColors>()!;
     final typography = theme.extension<MarvelTypography>()!;
     final isFavorite = character.isFavorite;
+    final sizeCard = MediaQuery.of(context).size.width * 0.4;
 
     return Scaffold(
       appBar: AppBar(
@@ -44,8 +45,8 @@ class SuccessfullyCharacterDetails extends StatelessWidget {
                         imageUrl: character.imageUrl,
                         loadingProgressColor: colors.primary,
                         errorIconColor: colors.primary,
-                        height: 180,
-                        width: 180,
+                        height: sizeCard,
+                        width: sizeCard,
                       ),
                     ),
                     const SizedBox(width: MarvelSpacing.x250),

@@ -15,6 +15,12 @@ class CharacterHorizontalList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+    final screenSizeWidth = mediaQuery.size.width;
+    final sizeCard = (mediaQuery.orientation == Orientation.portrait)
+        ? screenSizeWidth * 0.4
+        : screenSizeWidth * 0.2;
+
     return ListView.separated(
       shrinkWrap: true,
       scrollDirection: Axis.horizontal,
@@ -29,8 +35,8 @@ class CharacterHorizontalList extends StatelessWidget {
             onClickCard.call(character.id);
           },
           imageUrl: character.imageUrl,
-          imageHeight: 200,
-          imageWidth: 200,
+          imageHeight: sizeCard,
+          imageWidth: sizeCard,
         );
       },
       separatorBuilder: (context, index) {
