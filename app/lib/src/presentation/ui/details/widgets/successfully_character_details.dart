@@ -5,7 +5,6 @@ import 'package:internationalization/internationalization.dart';
 import '../../../../domain/model/character_details_data.dart';
 import 'comic_list.dart';
 import 'description_character_details.dart';
-import 'row_favorite_character.dart';
 
 class SuccessfullyCharacterDetails extends StatelessWidget {
   const SuccessfullyCharacterDetails({
@@ -23,6 +22,7 @@ class SuccessfullyCharacterDetails extends StatelessWidget {
     final theme = Theme.of(context);
     final colors = theme.extension<MarvelColors>()!;
     final typography = theme.extension<MarvelTypography>()!;
+    final isFavorite = character.isFavorite;
 
     return Scaffold(
       appBar: AppBar(
@@ -68,8 +68,12 @@ class SuccessfullyCharacterDetails extends StatelessWidget {
                 Align(
                   alignment: Alignment.centerRight,
                   child: RowFavoriteCharacter(
-                    toggleCharacter: toggleCharacter,
-                    isFavorite: character.isFavorite,
+                    onClick: toggleCharacter,
+                    text: isFavorite
+                        ? strings.unfavorite_text
+                        : strings.favorite_text,
+                    iconData:
+                        isFavorite ? Icons.favorite : Icons.favorite_border,
                   ),
                 ),
                 Visibility(
