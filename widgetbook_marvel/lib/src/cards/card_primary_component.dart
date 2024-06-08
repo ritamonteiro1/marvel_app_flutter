@@ -17,7 +17,8 @@ class CardPrimaryComponent extends WidgetbookComponent {
                       child: CardPrimary(
                         imageUrl:
                             'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg',
-                        text: '3-D Man',
+                        name: '3-D Man',
+                        comicsLength: 10,
                         onClick: () {},
                         imageWidth: 200,
                         imageHeight: 200,
@@ -37,7 +38,8 @@ class CardPrimaryComponent extends WidgetbookComponent {
                       child: CardPrimary.vertical(
                         imageUrl:
                             'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg',
-                        text: '3-D Man',
+                        name: '3-D Man',
+                        comicsLength: 5,
                         onClick: () {},
                         imageWidth: 200,
                         imageHeight: 200,
