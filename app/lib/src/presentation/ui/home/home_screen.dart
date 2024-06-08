@@ -55,9 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             );
           case TryRequestingCharactersAgain():
-            return LoadingScaffold(
-              text: strings.message_trying_again,
-            );
+            return const LoadingScaffold.message();
         }
       },
     );

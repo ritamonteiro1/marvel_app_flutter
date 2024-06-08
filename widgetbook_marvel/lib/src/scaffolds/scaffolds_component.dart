@@ -1,5 +1,4 @@
 import 'package:design_system/design_system.dart';
-import 'package:internationalization/internationalization.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 class ScaffoldsComponent extends WidgetbookComponent {
@@ -10,10 +9,13 @@ class ScaffoldsComponent extends WidgetbookComponent {
             WidgetbookUseCase(
               name: 'Loading',
               builder: (context) {
-                final strings = MarvelStrings.of(context);
-                return LoadingScaffold(
-                  text: strings.message_trying_again,
-                );
+                return const LoadingScaffold();
+              },
+            ),
+            WidgetbookUseCase(
+              name: 'Loading with message',
+              builder: (context) {
+                return const LoadingScaffold.message();
               },
             ),
             WidgetbookUseCase(

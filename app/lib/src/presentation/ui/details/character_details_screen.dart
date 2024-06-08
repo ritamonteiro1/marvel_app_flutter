@@ -63,9 +63,7 @@ class _CharacterDetailsScreenState extends State<CharacterDetailsScreen> {
               },
             );
           case TryRequestingDetailsAgain():
-            return LoadingScaffold(
-              text: strings.message_trying_again,
-            );
+            return const LoadingScaffold.message();
         }
       },
     );

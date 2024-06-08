@@ -58,9 +58,7 @@ class _FavoriteCharactersScreenState extends State<FavoriteCharactersScreen> {
               },
             );
           case TryRequestingFavoritesAgain():
-            return LoadingScaffold(
-              text: strings.message_trying_again,
-            );
+            return const LoadingScaffold.message();
         }
       }),
     );
