@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:focus_detector/focus_detector.dart';
 import 'package:go_router/go_router.dart';
-import 'package:internationalization/internationalization.dart';
 
 import '../../bloc/favorite/favorite_characters_bloc.dart';
 import '../../bloc/favorite/favorite_characters_event.dart';
@@ -24,7 +23,6 @@ class _FavoriteCharactersScreenState extends State<FavoriteCharactersScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final strings = MarvelStrings.of(context);
     final goRouter = GoRouter.of(context);
 
     return FocusDetector(

@@ -1,6 +1,5 @@
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
-import 'package:internationalization/internationalization.dart';
 
 class CardVertical extends StatelessWidget {
   const CardVertical({
@@ -22,8 +21,6 @@ class CardVertical extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final strings = MarvelStrings.of(context);
-
     final theme = Theme.of(context);
     final colors = theme.extension<MarvelColors>()!;
     final typography = theme.extension<MarvelTypography>()!;

@@ -1,7 +1,6 @@
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:internationalization/internationalization.dart';
 
 import '../../bloc/details/character_details_bloc.dart';
 import '../../bloc/details/character_details_event.dart';
@@ -24,7 +23,6 @@ class _CharacterDetailsScreenState extends State<CharacterDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     final characterId = widget.characterId;
-    final strings = MarvelStrings.of(context);
 
     return BlocBuilder<CharacterDetailsBloc, CharacterDetailsState>(
       builder: (context, state) {

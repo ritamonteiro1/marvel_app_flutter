@@ -1,7 +1,6 @@
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:internationalization/internationalization.dart';
 
 import '../../bloc/home/home_bloc.dart';
 import '../../bloc/home/home_event.dart';
@@ -26,8 +25,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final strings = MarvelStrings.of(context);
-
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
         switch (state) {
