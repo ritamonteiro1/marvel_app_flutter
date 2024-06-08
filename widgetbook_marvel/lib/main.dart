@@ -50,6 +50,7 @@ class WidgetBookMarvel extends StatelessWidget {
       directories: [
         CardPrimaryComponent(),
         ScaffoldsComponent(),
+        RowsComponents(),
       ],
     );
   }
