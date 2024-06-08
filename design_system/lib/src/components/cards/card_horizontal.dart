@@ -51,13 +51,16 @@ class CardHorizontal extends StatelessWidget {
               height: imageHeight,
             ),
             const SizedBox(width: MarvelSpacing.x300),
-            Text(
-              text,
-              style: typography.d3,
-              overflow: TextOverflow.ellipsis,
-              maxLines: 2,
-              textAlign: TextAlign.justify,
+            Expanded(
+              child: Text(
+                text,
+                style: typography.d3,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 2,
+                textAlign: TextAlign.justify,
+              ),
             ),
+            const SizedBox(width: MarvelSpacing.x200),
           ],
         ),
       ),
