@@ -37,8 +37,8 @@ class CardHorizontal extends StatelessWidget {
             MarvelRadius.x10,
           ),
           side: BorderSide(
-            color: colors.secondary,
-            width: MarvelBorder.x2,
+            color: colors.primary,
+            width: MarvelBorder.x1,
           ),
         ),
         child: Row(
