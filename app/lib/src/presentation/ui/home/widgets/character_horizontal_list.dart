@@ -15,7 +15,7 @@ class CharacterHorizontalList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return ListView.separated(
       shrinkWrap: true,
       scrollDirection: Axis.horizontal,
       itemCount: list.length,
@@ -30,6 +30,9 @@ class CharacterHorizontalList extends StatelessWidget {
           imageHeight: 100,
           imageWidth: 100,
         );
+      },
+      separatorBuilder: (context, index) {
+        return const SizedBox(width: MarvelSpacing.x200);
       },
     );
   }

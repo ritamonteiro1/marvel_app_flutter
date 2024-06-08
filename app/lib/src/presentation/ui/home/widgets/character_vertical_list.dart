@@ -15,14 +15,13 @@ class CharacterVerticalList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return ListView.separated(
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       scrollDirection: Axis.vertical,
       itemCount: list.length,
       itemBuilder: (context, index) {
         final character = list[index];
-
         return CardPrimary(
           text: character.name,
           onClick: () {
@@ -32,6 +31,9 @@ class CharacterVerticalList extends StatelessWidget {
           imageHeight: 100,
           imageWidth: 100,
         );
+      },
+      separatorBuilder: (context, index) {
+        return const SizedBox(height: MarvelSpacing.x100);
       },
     );
   }
