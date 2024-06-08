@@ -31,14 +31,14 @@ class SuccessfullyCharacterDetails extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: MarvelSpacing.x300),
+            padding: const EdgeInsets.symmetric(horizontal: MarvelSpacing.x350),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(height: MarvelSpacing.x300),
                 Text(
                   character.name,
-                  style: typography.d3,
+                  style: typography.d4,
                   textAlign: TextAlign.center,
                 ),
                 Visibility(
@@ -49,7 +49,7 @@ class SuccessfullyCharacterDetails extends StatelessWidget {
                     ),
                     child: Text(
                       character.modified.convertDate(),
-                      style: typography.d3,
+                      style: typography.d4,
                       textAlign: TextAlign.justify,
                     ),
                   ),

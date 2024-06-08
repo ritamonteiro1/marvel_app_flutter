@@ -20,7 +20,7 @@ class ComicList extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          strings.comics_text,
+          strings.comics_text.toUpperCase(),
           style: typography.d3,
         ),
         const SizedBox(height: MarvelSpacing.x200),
