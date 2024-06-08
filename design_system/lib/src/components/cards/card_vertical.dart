@@ -25,42 +25,50 @@ class CardVertical extends StatelessWidget {
 
     return GestureDetector(
       onTap: onClick,
-      child: Container(
+      child: SizedBox(
         width: imageWidth,
-        decoration: BoxDecoration(
-          color: colors.background,
-          borderRadius: BorderRadius.circular(
-            MarvelRadius.x10,
+        height: imageHeight,
+        child: Card(
+          clipBehavior: Clip.antiAlias,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(
+              MarvelRadius.x10,
+            ),
+            side: BorderSide(
+              color: colors.primary,
+              width: MarvelBorder.x1,
+            ),
           ),
-          border: Border.all(
-            color: colors.secondary,
-            width: MarvelBorder.x2,
-          ),
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            AspectRatio(
-              aspectRatio: 1 / 1,
-              child: CustomNetworkImage(
+          child: Stack(
+            children: [
+              CustomNetworkImage(
                 imageUrl: imageUrl,
                 loadingProgressColor: colors.primary,
                 errorIconColor: colors.onBackground,
                 width: imageWidth,
                 height: imageHeight,
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(MarvelSpacing.x200),
-              child: Text(
-                text,
-                style: typography.d3,
-                overflow: TextOverflow.ellipsis,
-                maxLines: 1,
-                textAlign: TextAlign.center,
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                  width: imageWidth,
+                  color: colors.background,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: MarvelSpacing.x100,
+                    ),
+                    child: Text(
+                      text,
+                      style: typography.d3,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
