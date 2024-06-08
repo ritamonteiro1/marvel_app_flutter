@@ -1,6 +1,5 @@
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
-import 'package:internationalization/internationalization.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 class RowsComponents extends WidgetbookComponent {
@@ -11,14 +10,11 @@ class RowsComponents extends WidgetbookComponent {
             WidgetbookUseCase(
               name: 'Favorite',
               builder: (context) {
-                final strings = MarvelStrings.of(context);
-
                 return Scaffold(
                   body: Center(
                     child: RowFavoriteCharacter(
                       onClick: () {},
-                      text: strings.favorite_text,
-                      iconData: Icons.favorite,
+                      isFavorite: false,
                     ),
                   ),
                 );
@@ -27,14 +23,11 @@ class RowsComponents extends WidgetbookComponent {
             WidgetbookUseCase(
               name: 'Unfavorite',
               builder: (context) {
-                final strings = MarvelStrings.of(context);
-
                 return Scaffold(
                   body: Center(
                     child: RowFavoriteCharacter(
                       onClick: () {},
-                      text: strings.unfavorite_text,
-                      iconData: Icons.favorite_border_outlined,
+                      isFavorite: true,
                     ),
                   ),
                 );

@@ -19,7 +19,7 @@ class ScaffoldsComponent extends WidgetbookComponent {
             WidgetbookUseCase(
               name: 'Network Error',
               builder: (context) {
-                return ErrorScaffold(
+                return ErrorScaffold.network(
                   onPressedButton: () {},
                 );
               },
@@ -27,7 +27,7 @@ class ScaffoldsComponent extends WidgetbookComponent {
             WidgetbookUseCase(
               name: 'Generic Error',
               builder: (context) {
-                return ErrorScaffold.network(
+                return ErrorScaffold(
                   onPressedButton: () {},
                 );
               },
