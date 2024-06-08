@@ -1,5 +1,5 @@
 // DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
-// This is a library that provides messages for a en_US locale. All the
+// This is a library that provides messages for a pt_BR locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
 
@@ -18,28 +18,29 @@ final messages = new MessageLookup();
 typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 
 class MessageLookup extends MessageLookupByLibrary {
-  String get localeName => 'en_US';
+  String get localeName => 'pt_BR';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "app_bar_title_character_details_screen":
-            MessageLookupByLibrary.simpleMessage("Details"),
+            MessageLookupByLibrary.simpleMessage("Detalhes"),
         "app_bar_title_favorite_characters_screen":
-            MessageLookupByLibrary.simpleMessage("Favorites"),
+            MessageLookupByLibrary.simpleMessage("Favoritos"),
         "app_bar_title_home_screen":
-            MessageLookupByLibrary.simpleMessage("Characters"),
+            MessageLookupByLibrary.simpleMessage("Personagens"),
         "app_name": MessageLookupByLibrary.simpleMessage("Marvel App"),
         "comics_text": MessageLookupByLibrary.simpleMessage("Comics:"),
         "message_generic_error":
-            MessageLookupByLibrary.simpleMessage("Ops!\nAn error occurred"),
+            MessageLookupByLibrary.simpleMessage("Ops!\nOcorreu um erro"),
         "message_network_error":
-            MessageLookupByLibrary.simpleMessage("Ops!\nConnection fail"),
+            MessageLookupByLibrary.simpleMessage("Ops!\nFalha na conexão"),
         "message_no_favorite_characters":
-            MessageLookupByLibrary.simpleMessage("No favorite characters"),
+            MessageLookupByLibrary.simpleMessage("Sem personagens favoritos"),
         "message_no_more_characters":
-            MessageLookupByLibrary.simpleMessage("List ends here"),
-        "message_try_again": MessageLookupByLibrary.simpleMessage("Try again"),
+            MessageLookupByLibrary.simpleMessage("Fim da lista"),
+        "message_try_again":
+            MessageLookupByLibrary.simpleMessage("Tentar novamente"),
         "message_trying_again":
-            MessageLookupByLibrary.simpleMessage("Trying again...")
+            MessageLookupByLibrary.simpleMessage("Tentando novamente...")
       };
 }

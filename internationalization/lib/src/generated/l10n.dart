@@ -60,90 +60,90 @@ class MarvelStrings {
     );
   }
 
-  /// `Characters`
+  /// `Personagens`
   String get app_bar_title_home_screen {
     return Intl.message(
-      'Characters',
+      'Personagens',
       name: 'app_bar_title_home_screen',
       desc: '',
       args: [],
     );
   }
 
-  /// `Character Details`
+  /// `Detalhes`
   String get app_bar_title_character_details_screen {
     return Intl.message(
-      'Character Details',
+      'Detalhes',
       name: 'app_bar_title_character_details_screen',
       desc: '',
       args: [],
     );
   }
 
-  /// `Favorite Characters`
+  /// `Favoritos`
   String get app_bar_title_favorite_characters_screen {
     return Intl.message(
-      'Favorite Characters',
+      'Favoritos',
       name: 'app_bar_title_favorite_characters_screen',
       desc: '',
       args: [],
     );
   }
 
-  /// `Ops!\nAn error occurred`
+  /// `Ops!\nOcorreu um erro`
   String get message_generic_error {
     return Intl.message(
-      'Ops!\nAn error occurred',
+      'Ops!\nOcorreu um erro',
       name: 'message_generic_error',
       desc: '',
       args: [],
     );
   }
 
-  /// `Ops!\nConnection fail`
+  /// `Ops!\nFalha na conexão`
   String get message_network_error {
     return Intl.message(
-      'Ops!\nConnection fail',
+      'Ops!\nFalha na conexão',
       name: 'message_network_error',
       desc: '',
       args: [],
     );
   }
 
-  /// `List ends here`
+  /// `Fim da lista`
   String get message_no_more_characters {
     return Intl.message(
-      'List ends here',
+      'Fim da lista',
       name: 'message_no_more_characters',
       desc: '',
       args: [],
     );
   }
 
-  /// `Try again`
+  /// `Tentar novamente`
   String get message_try_again {
     return Intl.message(
-      'Try again',
+      'Tentar novamente',
       name: 'message_try_again',
       desc: '',
       args: [],
     );
   }
 
-  /// `Trying again...`
+  /// `Tentando novamente...`
   String get message_trying_again {
     return Intl.message(
-      'Trying again...',
+      'Tentando novamente...',
       name: 'message_trying_again',
       desc: '',
       args: [],
     );
   }
 
-  /// `No favorite characters`
+  /// `Sem personagens favoritos`
   String get message_no_favorite_characters {
     return Intl.message(
-      'No favorite characters',
+      'Sem personagens favoritos',
       name: 'message_no_favorite_characters',
       desc: '',
       args: [],
@@ -166,6 +166,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<MarvelStrings> {
 
   List<Locale> get supportedLocales {
     return const <Locale>[
+      Locale.fromSubtags(languageCode: 'pt', countryCode: 'BR'),
       Locale.fromSubtags(languageCode: 'en', countryCode: 'US'),
     ];
   }

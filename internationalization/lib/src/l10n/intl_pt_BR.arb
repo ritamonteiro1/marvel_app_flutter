@@ -1,0 +1,18 @@
+{
+  "@_NAMING_CONVENTION": {
+    "<module>_<component or screen>_<key>": "",
+    "<module>_<key>": "",
+    "common_<key>": ""
+  },
+  "app_name": "Marvel App",
+  "app_bar_title_home_screen": "Personagens",
+  "app_bar_title_character_details_screen": "Detalhes",
+  "app_bar_title_favorite_characters_screen": "Favoritos",
+  "message_generic_error": "Ops!\nOcorreu um erro",
+  "message_network_error": "Ops!\nFalha na conexão",
+  "message_no_more_characters": "Fim da lista",
+  "message_try_again": "Tentar novamente",
+  "message_trying_again": "Tentando novamente...",
+  "message_no_favorite_characters": "Sem personagens favoritos",
+  "comics_text": "Comics:"
+}
