@@ -33,8 +33,8 @@ class FavoriteList extends StatelessWidget {
                   onClickCard.call(character.id);
                 },
                 imageUrl: character.imageUrl,
-                imageHeight: 100,
-                imageWidth: 100,
+                imageHeight: 120,
+                imageWidth: 120,
               );
             },
           )
