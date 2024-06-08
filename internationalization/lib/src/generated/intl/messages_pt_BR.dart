@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Personagens"),
         "app_name": MessageLookupByLibrary.simpleMessage("Marvel App"),
         "comics_text": MessageLookupByLibrary.simpleMessage("Comics:"),
+        "favorite_text": MessageLookupByLibrary.simpleMessage("Favoritar"),
         "message_generic_error":
             MessageLookupByLibrary.simpleMessage("Ops!\nOcorreu um erro"),
         "message_network_error":
@@ -41,6 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "message_try_again":
             MessageLookupByLibrary.simpleMessage("Tentar novamente"),
         "message_trying_again":
-            MessageLookupByLibrary.simpleMessage("Tentando novamente...")
+            MessageLookupByLibrary.simpleMessage("Tentando novamente..."),
+        "unfavorite_text": MessageLookupByLibrary.simpleMessage("Desfavoritar")
       };
 }

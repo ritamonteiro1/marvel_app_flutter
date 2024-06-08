@@ -159,6 +159,26 @@ class MarvelStrings {
       args: [],
     );
   }
+
+  /// `Favoritar`
+  String get favorite_text {
+    return Intl.message(
+      'Favoritar',
+      name: 'favorite_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Desfavoritar`
+  String get unfavorite_text {
+    return Intl.message(
+      'Desfavoritar',
+      name: 'unfavorite_text',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<MarvelStrings> {

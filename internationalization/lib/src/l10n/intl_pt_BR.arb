@@ -14,5 +14,7 @@
   "message_try_again": "Tentar novamente",
   "message_trying_again": "Tentando novamente...",
   "message_no_favorite_characters": "Sem personagens favoritos",
-  "comics_text": "Comics:"
+  "comics_text": "Comics:",
+  "favorite_text": "Favoritar",
+  "unfavorite_text": "Desfavoritar"
 }
