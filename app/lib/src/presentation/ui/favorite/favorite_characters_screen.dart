@@ -51,9 +51,6 @@ class _FavoriteCharactersScreenState extends State<FavoriteCharactersScreen> {
             );
           case GenericErrorRequestingFavorites():
             return ErrorScaffold(
-              iconData: Icons.error_outline_rounded,
-              text: strings.message_generic_error,
-              textButton: strings.message_try_again,
               onPressedButton: () {
                 context
                     .read<FavoriteCharactersBloc>()

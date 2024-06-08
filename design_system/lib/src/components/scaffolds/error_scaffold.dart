@@ -1,29 +1,27 @@
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
-
-import '../../tokens/colors/marvel_colors.dart';
-import '../../tokens/sizes/marvel_sizes.dart';
-import '../../tokens/typography/marvel_typography.dart';
+import 'package:internationalization/internationalization.dart';
 
 class ErrorScaffold extends StatelessWidget {
   const ErrorScaffold({
     super.key,
-    required this.text,
-    required this.textButton,
     required this.onPressedButton,
-    required this.iconData,
-  });
+  }) : isNetworkError = false;
 
-  final String text;
-  final IconData iconData;
-  final String textButton;
+  const ErrorScaffold.network({
+    super.key,
+    required this.onPressedButton,
+  }) : isNetworkError = true;
+
   final VoidCallback onPressedButton;
+  final bool isNetworkError;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colors = theme.extension<MarvelColors>()!;
     final typography = theme.extension<MarvelTypography>()!;
+    final strings = MarvelStrings.of(context);
 
     return Scaffold(
       body: Center(
@@ -34,13 +32,18 @@ class ErrorScaffold extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Icon(
-                iconData,
+                isNetworkError
+                    ? Icons.wifi_off_outlined
+                    : Icons.error_outline_rounded,
                 color: colors.primary,
                 size: 100,
               ),
               const SizedBox(height: MarvelSpacing.x300),
               Text(
-                text.toUpperCase(),
+                (isNetworkError
+                        ? strings.message_network_error
+                        : strings.message_generic_error)
+                    .toUpperCase(),
                 style: typography.d3,
                 textAlign: TextAlign.center,
               ),
@@ -51,10 +54,8 @@ class ErrorScaffold extends StatelessWidget {
                 ),
                 onPressed: onPressedButton,
                 child: Text(
-                  textButton,
-                  style: typography.d3.copyWith(
-                    color: colors.background,
-                  ).bold,
+                  strings.message_try_again,
+                  style: typography.d3.copyWith(color: colors.background).bold,
                   textAlign: TextAlign.center,
                 ),
               ),

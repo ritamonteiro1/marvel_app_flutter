@@ -48,9 +48,6 @@ class _CharacterDetailsScreenState extends State<CharacterDetailsScreen> {
             );
           case GenericErrorRequestingDetails():
             return ErrorScaffold(
-              iconData: Icons.error_outline_rounded,
-              text: strings.message_generic_error,
-              textButton: strings.message_try_again,
               onPressedButton: () {
                 context.read<CharacterDetailsBloc>().add(TryRequestDetailsAgain(
                       characterId: characterId,
@@ -58,10 +55,7 @@ class _CharacterDetailsScreenState extends State<CharacterDetailsScreen> {
               },
             );
           case NetworkErrorRequestingDetails():
-            return ErrorScaffold(
-              iconData: Icons.wifi_off_outlined,
-              text: strings.message_network_error,
-              textButton: strings.message_try_again,
+            return ErrorScaffold.network(
               onPressedButton: () {
                 context.read<CharacterDetailsBloc>().add(TryRequestDetailsAgain(
                       characterId: characterId,

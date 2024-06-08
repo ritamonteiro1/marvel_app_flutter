@@ -44,18 +44,12 @@ class _HomeScreenState extends State<HomeScreen> {
             );
           case GenericErrorRequestingCharacters():
             return ErrorScaffold(
-              iconData: Icons.error_outline_rounded,
-              text: strings.message_generic_error,
-              textButton: strings.message_try_again,
               onPressedButton: () {
                 context.read<HomeBloc>().add(TryRequestCharacterListAgain());
               },
             );
           case NetworkErrorRequestingCharacters():
-            return ErrorScaffold(
-              iconData: Icons.wifi_off_outlined,
-              text: strings.message_network_error,
-              textButton: strings.message_try_again,
+            return ErrorScaffold.network(
               onPressedButton: () {
                 context.read<HomeBloc>().add(TryRequestCharacterListAgain());
               },
