@@ -1,0 +1,1 @@
+export 'row_favorite_character.dart';

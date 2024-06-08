@@ -30,6 +30,7 @@ class ErrorScaffold extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: MarvelSpacing.x500),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Icon(
                 iconData,
@@ -43,20 +44,17 @@ class ErrorScaffold extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: MarvelSpacing.x400),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: colors.primary,
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: colors.primary,
+                ),
+                onPressed: onPressedButton,
+                child: Text(
+                  textButton,
+                  style: typography.d3.copyWith(
+                    color: colors.background,
                   ),
-                  onPressed: onPressedButton,
-                  child: Text(
-                    textButton,
-                    style: typography.d3.copyWith(
-                      color: colors.background,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
+                  textAlign: TextAlign.center,
                 ),
               ),
             ],
