@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:internationalization/internationalization.dart';
 
 import '../../../design_system.dart';
 
 class RowFavoriteCharacter extends StatelessWidget {
   const RowFavoriteCharacter({
     super.key,
-    required this.text,
-    required this.iconData,
+    required this.isFavorite,
     required this.onClick,
   });
 
-  final String text;
-  final IconData iconData;
+  final bool isFavorite;
   final VoidCallback onClick;
 
   @override
@@ -19,6 +18,7 @@ class RowFavoriteCharacter extends StatelessWidget {
     final theme = Theme.of(context);
     final colors = theme.extension<MarvelColors>()!;
     final typography = theme.extension<MarvelTypography>()!;
+    final strings = MarvelStrings.of(context);
 
     return GestureDetector(
       onTap: onClick,
@@ -42,13 +42,14 @@ class RowFavoriteCharacter extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                text.toUpperCase(),
+                (isFavorite ? strings.unfavorite_text : strings.favorite_text)
+                    .toUpperCase(),
                 style: typography.d3,
                 textAlign: TextAlign.justify,
               ),
               const SizedBox(width: MarvelSpacing.x150),
               Icon(
-                iconData,
+                isFavorite ? Icons.favorite : Icons.favorite_border,
                 color: colors.secondary,
               ),
             ],

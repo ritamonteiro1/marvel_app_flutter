@@ -83,11 +83,7 @@ class SuccessfullyCharacterDetails extends StatelessWidget {
                   alignment: Alignment.centerRight,
                   child: RowFavoriteCharacter(
                     onClick: toggleCharacter,
-                    text: isFavorite
-                        ? strings.unfavorite_text
-                        : strings.favorite_text,
-                    iconData:
-                        isFavorite ? Icons.favorite : Icons.favorite_border,
+                    isFavorite: isFavorite,
                   ),
                 ),
                 Visibility(

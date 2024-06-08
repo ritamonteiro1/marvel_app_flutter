@@ -55,7 +55,8 @@ class CardHorizontal extends StatelessWidget {
             const SizedBox(width: MarvelSpacing.x300),
             Expanded(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
