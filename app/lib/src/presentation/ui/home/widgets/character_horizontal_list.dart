@@ -27,8 +27,8 @@ class CharacterHorizontalList extends StatelessWidget {
             onClickCard.call(character.id);
           },
           imageUrl: character.imageUrl,
-          imageHeight: 100,
-          imageWidth: 100,
+          imageHeight: 200,
+          imageWidth: 200,
         );
       },
       separatorBuilder: (context, index) {
