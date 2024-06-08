@@ -18,7 +18,11 @@ class WarningText extends StatelessWidget {
 
     return Visibility(
       visible: isVisible,
-      child: Text(message, style: typography.d2),
+      child: Text(
+        message,
+        style: typography.d2,
+        textAlign: TextAlign.center,
+      ),
     );
   }
 }
