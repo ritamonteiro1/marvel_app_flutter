@@ -36,33 +36,46 @@ class SuccessfullyCharacterDetails extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(height: MarvelSpacing.x300),
-                Text(
-                  character.name,
-                  style: typography.d4,
-                  textAlign: TextAlign.center,
-                ),
-                Visibility(
-                  visible: character.modified.isNotEmpty,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: MarvelSpacing.x200,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ClipOval(
+                      child: CustomNetworkImage(
+                        imageUrl: character.imageUrl,
+                        loadingProgressColor: colors.primary,
+                        errorIconColor: colors.primary,
+                        height: 180,
+                        width: 180,
+                      ),
                     ),
-                    child: Text(
-                      character.modified.convertDate(),
-                      style: typography.d4,
-                      textAlign: TextAlign.justify,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: MarvelSpacing.x250),
-                Center(
-                  child: CustomNetworkImage(
-                    imageUrl: character.imageUrl,
-                    loadingProgressColor: colors.primary,
-                    errorIconColor: colors.primary,
-                    height: 240,
-                    width: 240,
-                  ),
+                    const SizedBox(width: MarvelSpacing.x250),
+                    Expanded(
+                      child: Column(
+                        children: [
+                          Text(
+                            character.name,
+                            style: typography.d4,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 2,
+                            textAlign: TextAlign.center,
+                          ),
+                          Visibility(
+                            visible: character.modified.isNotEmpty,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                vertical: MarvelSpacing.x200,
+                              ),
+                              child: Text(
+                                character.modified.convertDate(),
+                                style: typography.d4,
+                                textAlign: TextAlign.justify,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
                 ),
                 const SizedBox(height: MarvelSpacing.x300),
                 Align(
