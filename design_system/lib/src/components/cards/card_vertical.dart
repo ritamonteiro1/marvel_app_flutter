@@ -1,24 +1,29 @@
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
+import 'package:internationalization/internationalization.dart';
 
 class CardVertical extends StatelessWidget {
   const CardVertical({
     super.key,
     required this.imageUrl,
-    required this.text,
+    required this.title,
+    required this.subtitle,
     required this.imageHeight,
     required this.imageWidth,
     required this.onClick,
   });
 
   final String imageUrl;
-  final String text;
+  final String title;
+  final String subtitle;
   final double imageHeight;
   final double imageWidth;
   final VoidCallback onClick;
 
   @override
   Widget build(BuildContext context) {
+    final strings = MarvelStrings.of(context);
+
     final theme = Theme.of(context);
     final colors = theme.extension<MarvelColors>()!;
     final typography = theme.extension<MarvelTypography>()!;
@@ -54,15 +59,25 @@ class CardVertical extends StatelessWidget {
                   width: imageWidth,
                   color: colors.background,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: MarvelSpacing.x100,
-                    ),
-                    child: Text(
-                      text.toUpperCase(),
-                      style: typography.d3.bold,
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
-                      textAlign: TextAlign.center,
+                    padding: const EdgeInsets.all(MarvelSpacing.x100),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          title.toUpperCase(),
+                          style: typography.d3.bold,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
+                          textAlign: TextAlign.center,
+                        ),
+                        Text(
+                          subtitle,
+                          style: typography.d2.bold,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
                     ),
                   ),
                 ),

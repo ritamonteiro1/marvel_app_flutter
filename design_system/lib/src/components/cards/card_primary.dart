@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:internationalization/internationalization.dart';
 
 import 'card_horizontal.dart';
 import 'card_vertical.dart';
@@ -6,7 +7,8 @@ import 'card_vertical.dart';
 class CardPrimary extends StatelessWidget {
   const CardPrimary({
     super.key,
-    required this.text,
+    required this.name,
+    required this.comicsLength,
     required this.onClick,
     required this.imageUrl,
     required this.imageHeight,
@@ -15,14 +17,16 @@ class CardPrimary extends StatelessWidget {
 
   const CardPrimary.vertical({
     super.key,
-    required this.text,
+    required this.name,
+    required this.comicsLength,
     required this.onClick,
     required this.imageUrl,
     required this.imageHeight,
     required this.imageWidth,
   }) : isVertical = true;
 
-  final String text;
+  final String name;
+  final int comicsLength;
   final VoidCallback onClick;
   final bool isVertical;
   final String imageUrl;
@@ -31,10 +35,15 @@ class CardPrimary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final strings = MarvelStrings.of(context);
+    final comics = comicsLength > 0 ? comicsLength.toString() : '-';
+    final subtitle = '${strings.comics_text} $comics';
+
     if (isVertical) {
       return CardVertical(
         imageUrl: imageUrl,
-        text: text,
+        title: name,
+        subtitle: subtitle,
         imageHeight: imageHeight,
         imageWidth: imageWidth,
         onClick: onClick,
@@ -42,7 +51,8 @@ class CardPrimary extends StatelessWidget {
     }
     return CardHorizontal(
       imageUrl: imageUrl,
-      text: text,
+      title: name,
+      subtitle: subtitle,
       imageHeight: imageHeight,
       imageWidth: imageWidth,
       onClick: onClick,

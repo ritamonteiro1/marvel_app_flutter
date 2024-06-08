@@ -23,7 +23,8 @@ class CharacterVerticalList extends StatelessWidget {
       itemBuilder: (context, index) {
         final character = list[index];
         return CardPrimary(
-          text: character.name,
+          name: character.name,
+          comicsLength: character.comics.length,
           onClick: () {
             onClickCard.call(character.id);
           },

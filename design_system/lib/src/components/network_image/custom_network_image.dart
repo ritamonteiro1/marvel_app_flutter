@@ -33,7 +33,7 @@ class CustomNetworkImage extends StatelessWidget {
       errorWidget: (context, url, error) => Center(
         child: Icon(
           Icons.image_not_supported_sharp,
-          size: width / 2,
+          size: width / 4,
           color: errorIconColor,
         ),
       ),

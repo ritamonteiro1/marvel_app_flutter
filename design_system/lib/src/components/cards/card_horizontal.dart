@@ -9,14 +9,16 @@ class CardHorizontal extends StatelessWidget {
   const CardHorizontal({
     super.key,
     required this.imageUrl,
-    required this.text,
+    required this.title,
+    required this.subtitle,
     required this.imageHeight,
     required this.imageWidth,
     required this.onClick,
   });
 
   final String imageUrl;
-  final String text;
+  final String title;
+  final String subtitle;
   final double imageHeight;
   final double imageWidth;
   final VoidCallback onClick;
@@ -52,12 +54,23 @@ class CardHorizontal extends StatelessWidget {
             ),
             const SizedBox(width: MarvelSpacing.x300),
             Expanded(
-              child: Text(
-                text.toUpperCase(),
-                style: typography.d3.bold,
-                overflow: TextOverflow.ellipsis,
-                maxLines: 2,
-                textAlign: TextAlign.justify,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title.toUpperCase(),
+                    style: typography.d3.bold,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
+                    textAlign: TextAlign.justify,
+                  ),
+                  Text(
+                    subtitle,
+                    style: typography.d2.bold,
+                    textAlign: TextAlign.justify,
+                  ),
+                ],
               ),
             ),
             const SizedBox(width: MarvelSpacing.x200),
