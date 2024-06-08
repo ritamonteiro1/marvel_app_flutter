@@ -25,9 +25,9 @@ class LoadingScaffold extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CircularProgressIndicator(color: colors.primary),
-                  const SizedBox(height: MarvelSpacing.x300),
+                  const SizedBox(height: MarvelSpacing.x400),
                   Text(
-                    text!,
+                    text!.toUpperCase(),
                     style: typography.d3,
                   ),
                 ],

@@ -1,3 +1,4 @@
+import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 
 import '../../tokens/colors/marvel_colors.dart';
@@ -39,7 +40,7 @@ class ErrorScaffold extends StatelessWidget {
               ),
               const SizedBox(height: MarvelSpacing.x300),
               Text(
-                text,
+                text.toUpperCase(),
                 style: typography.d3,
                 textAlign: TextAlign.center,
               ),
@@ -53,7 +54,7 @@ class ErrorScaffold extends StatelessWidget {
                   textButton,
                   style: typography.d3.copyWith(
                     color: colors.background,
-                  ),
+                  ).bold,
                   textAlign: TextAlign.center,
                 ),
               ),

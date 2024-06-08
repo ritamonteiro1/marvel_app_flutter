@@ -42,7 +42,7 @@ class RowFavoriteCharacter extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                text,
+                text.toUpperCase(),
                 style: typography.d3,
                 textAlign: TextAlign.justify,
               ),

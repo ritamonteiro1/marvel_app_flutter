@@ -58,8 +58,8 @@ class CardVertical extends StatelessWidget {
                       vertical: MarvelSpacing.x100,
                     ),
                     child: Text(
-                      text,
-                      style: typography.d3,
+                      text.toUpperCase(),
+                      style: typography.d3.bold,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
                       textAlign: TextAlign.center,
