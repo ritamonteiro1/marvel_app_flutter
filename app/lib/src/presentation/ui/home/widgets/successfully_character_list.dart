@@ -44,6 +44,7 @@ class _SuccessfullyCharacterListState extends State<SuccessfullyCharacterList> {
         ),
         actions: [
           IconButton(
+            tooltip: strings.semantic_label_icon_button_favorite,
             icon: Icon(Icons.favorite, color: colors.secondary),
             onPressed: () {
               goRouter.navigateToFavoriteCharactersScreen();
@@ -51,14 +52,9 @@ class _SuccessfullyCharacterListState extends State<SuccessfullyCharacterList> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: colors.primary,
-        onPressed: () {
-          widget.floatingActionButtonOnClick.call();
-        },
-        foregroundColor: colors.background,
-        child: const Icon(Icons.arrow_upward),
-      ),
+      floatingActionButton: ReturnToTopFAB(onClick: () {
+        widget.floatingActionButtonOnClick.call();
+      }),
       body: SafeArea(
         child: SingleChildScrollView(
           controller: widget.scrollController,

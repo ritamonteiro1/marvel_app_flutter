@@ -66,10 +66,4 @@ class _CharacterDetailsScreenState extends State<CharacterDetailsScreen> {
       },
     );
   }
-
-  @override
-  void dispose() {
-    context.read<CharacterDetailsBloc>().close();
-    super.dispose();
-  }
 }
