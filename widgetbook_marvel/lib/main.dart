@@ -30,10 +30,8 @@ class WidgetBookMarvel extends StatelessWidget {
         ),
         DeviceFrameAddon(
           devices: [
-            Devices.android.largeTablet,
             Devices.android.mediumPhone,
             Devices.ios.iPhone13,
-            Devices.ios.iPadAir4,
           ],
           initialDevice: Devices.android.mediumPhone,
         ),
@@ -51,6 +49,7 @@ class WidgetBookMarvel extends StatelessWidget {
         CardPrimaryComponent(),
         ScaffoldsComponent(),
         RowsComponents(),
+        ButtonsComponents()
       ],
     );
   }
