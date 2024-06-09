@@ -37,6 +37,9 @@ class ErrorScaffold extends StatelessWidget {
                     : Icons.error_outline_rounded,
                 color: colors.primary,
                 size: 100,
+                semanticLabel: isNetworkError
+                    ? strings.semantic_label_icon_error
+                    : strings.semantic_label_icon_network_error,
               ),
               const SizedBox(height: MarvelSpacing.x300),
               Text(
@@ -46,6 +49,9 @@ class ErrorScaffold extends StatelessWidget {
                     .toUpperCase(),
                 style: typography.d3,
                 textAlign: TextAlign.center,
+                semanticsLabel: isNetworkError
+                    ? strings.message_network_error
+                    : strings.message_generic_error,
               ),
               const SizedBox(height: MarvelSpacing.x400),
               ElevatedButton(

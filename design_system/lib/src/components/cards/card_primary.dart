@@ -39,23 +39,25 @@ class CardPrimary extends StatelessWidget {
     final comics = comicsLength > 0 ? comicsLength.toString() : '-';
     final subtitle = '${strings.comics_text} $comics';
 
-    if (isVertical) {
-      return CardVertical(
-        imageUrl: imageUrl,
-        title: name,
-        subtitle: subtitle,
-        imageHeight: imageHeight,
-        imageWidth: imageWidth,
-        onClick: onClick,
-      );
-    }
-    return CardHorizontal(
-      imageUrl: imageUrl,
-      title: name,
-      subtitle: subtitle,
-      imageHeight: imageHeight,
-      imageWidth: imageWidth,
-      onClick: onClick,
+    return Semantics(
+      label: strings.semantic_label_card_primary_action(name),
+      child: isVertical
+          ? CardVertical(
+              imageUrl: imageUrl,
+              title: name,
+              subtitle: subtitle,
+              imageHeight: imageHeight,
+              imageWidth: imageWidth,
+              onClick: onClick,
+            )
+          : CardHorizontal(
+              imageUrl: imageUrl,
+              title: name,
+              subtitle: subtitle,
+              imageHeight: imageHeight,
+              imageWidth: imageWidth,
+              onClick: onClick,
+            ),
     );
   }
 }

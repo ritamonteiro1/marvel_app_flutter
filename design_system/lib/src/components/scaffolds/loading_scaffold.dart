@@ -32,12 +32,16 @@ class LoadingScaffold extends StatelessWidget {
                   CircularProgressIndicator(color: colors.primary),
                   const SizedBox(height: MarvelSpacing.x400),
                   Text(
+                    semanticsLabel: strings.message_trying_again,
                     (strings.message_trying_again).toUpperCase(),
                     style: typography.d3,
                   ),
                 ],
               )
-            : CircularProgressIndicator(color: colors.primary),
+            : CircularProgressIndicator(
+                color: colors.primary,
+                semanticsLabel: strings.semantic_label_loading_text,
+              ),
       ),
     );
   }
