@@ -49,7 +49,8 @@ class WidgetBookMarvel extends StatelessWidget {
         CardPrimaryComponent(),
         ScaffoldsComponent(),
         RowsComponents(),
-        ButtonsComponents()
+        ButtonsComponents(),
+        TextsComponents(),
       ],
     );
   }
