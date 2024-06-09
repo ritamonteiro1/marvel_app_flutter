@@ -7,7 +7,6 @@ import '../../../bloc/home/home_state.dart';
 import '../../../navigation/marvel_routes.dart';
 import 'character_horizontal_list.dart';
 import 'character_vertical_list.dart';
-import 'warning_text.dart';
 
 class SuccessfullyCharacterList extends StatefulWidget {
   const SuccessfullyCharacterList({
