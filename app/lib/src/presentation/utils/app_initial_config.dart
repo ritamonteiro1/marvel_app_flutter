@@ -1,4 +1,5 @@
 import 'package:hive_flutter/adapters.dart';
+
 import '../../data/di/data_di.dart';
 import '../../data/local/model/character_cache.dart';
 import '../../domain/di/domain_di.dart';

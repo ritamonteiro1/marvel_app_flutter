@@ -61,7 +61,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void dispose() {
     _scrollController.dispose();
-    context.read<HomeBloc>();
     super.dispose();
   }
 
