@@ -1,3 +1,4 @@
+import 'package:core/core.dart';
 import 'package:get_it/get_it.dart';
 
 import '../repository/marvel_repository.dart';
@@ -17,21 +18,25 @@ void domainDI() {
     ..registerFactory<GetCharacterListUseCase>(
       () => GetCharacterListUseCaseImpl(
         repository: getIt.get<MarvelRepository>(),
+        loggerRepository: getIt.get<LoggerRepository>(),
       ),
     )
     ..registerFactory<GetCharacterDetailsUseCase>(
       () => GetCharacterDetailsUseCaseImpl(
         repository: getIt.get<MarvelRepository>(),
+        loggerRepository: getIt.get<LoggerRepository>(),
       ),
     )
     ..registerFactory<GetFavoriteCharactersUseCase>(
       () => GetFavoriteCharactersUseCaseImpl(
         repository: getIt.get<MarvelRepository>(),
+        loggerRepository: getIt.get<LoggerRepository>(),
       ),
     )
     ..registerFactory<ToggleCharacterFavoriteUseCase>(
       () => ToggleCharacterFavoriteUseCaseImpl(
         repository: getIt.get<MarvelRepository>(),
+        loggerRepository: getIt.get<LoggerRepository>(),
       ),
     );
 }

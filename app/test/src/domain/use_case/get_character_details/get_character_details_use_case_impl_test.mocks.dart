@@ -8,6 +8,7 @@ import 'dart:async' as _i5;
 import 'package:app/src/domain/model/character_details_data.dart' as _i3;
 import 'package:app/src/domain/model/character_list.dart' as _i2;
 import 'package:app/src/domain/repository/marvel_repository.dart' as _i4;
+import 'package:core/src/repository/logger_repository.dart' as _i6;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -113,4 +114,40 @@ class MockMarvelRepository extends _i1.Mock implements _i4.MarvelRepository {
         returnValue: _i5.Future<void>.value(),
         returnValueForMissingStub: _i5.Future<void>.value(),
       ) as _i5.Future<void>);
+}
+
+/// A class which mocks [LoggerRepository].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockLoggerRepository extends _i1.Mock implements _i6.LoggerRepository {
+  MockLoggerRepository() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  void d(String? message) => super.noSuchMethod(
+        Invocation.method(
+          #d,
+          [message],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void e(
+    String? message, [
+    Object? error,
+    StackTrace? stackTrace,
+  ]) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #e,
+          [
+            message,
+            error,
+            stackTrace,
+          ],
+        ),
+        returnValueForMissingStub: null,
+      );
 }

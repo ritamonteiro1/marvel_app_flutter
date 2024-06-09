@@ -1,3 +1,4 @@
+import 'package:core/core.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive/hive.dart';
 
@@ -33,5 +34,8 @@ void dataDI() {
         remoteDataSource: getIt.get<MarvelRemoteDataSource>(),
         localDataSource: getIt.get<MarvelLocalDataSource>(),
       ),
+    )
+    ..registerSingleton<LoggerRepository>(
+      LoggerRepositoryImpl(),
     );
 }

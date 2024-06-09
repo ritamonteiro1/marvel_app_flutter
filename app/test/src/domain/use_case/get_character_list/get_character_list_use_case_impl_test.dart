@@ -1,6 +1,7 @@
 import 'package:app/src/domain/repository/marvel_repository.dart';
 import 'package:app/src/domain/use_case/get_character_list/get_character_list_use_case.dart';
 import 'package:app/src/domain/use_case/get_character_list/get_character_list_use_case_impl.dart';
+import 'package:core/core.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
@@ -8,14 +9,19 @@ import 'package:test/test.dart';
 import '../../../../resources/test_resources.dart';
 import 'get_character_list_use_case_impl_test.mocks.dart';
 
-@GenerateMocks([MarvelRepository])
+@GenerateMocks([MarvelRepository, LoggerRepository])
 void main() {
   late MockMarvelRepository repository;
+  late MockLoggerRepository loggerRepository;
   late GetCharacterListUseCase useCase;
 
   setUp(() {
     repository = MockMarvelRepository();
-    useCase = GetCharacterListUseCaseImpl(repository: repository);
+    loggerRepository = MockLoggerRepository();
+    useCase = GetCharacterListUseCaseImpl(
+      repository: repository,
+      loggerRepository: loggerRepository,
+    );
   });
 
   test(
