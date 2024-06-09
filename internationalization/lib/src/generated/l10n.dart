@@ -179,6 +179,66 @@ class MarvelStrings {
       args: [],
     );
   }
+
+  /// `Ícone de erro`
+  String get semantic_label_icon_error {
+    return Intl.message(
+      'Ícone de erro',
+      name: 'semantic_label_icon_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ícone de erro de internet`
+  String get semantic_label_icon_network_error {
+    return Intl.message(
+      'Ícone de erro de internet',
+      name: 'semantic_label_icon_network_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Carregando...`
+  String get semantic_label_loading_text {
+    return Intl.message(
+      'Carregando...',
+      name: 'semantic_label_loading_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Card do personagem {name} clicado. Ir para tela de detalhes`
+  String semantic_label_card_primary_action(Object name) {
+    return Intl.message(
+      'Card do personagem $name clicado. Ir para tela de detalhes',
+      name: 'semantic_label_card_primary_action',
+      desc: '',
+      args: [name],
+    );
+  }
+
+  /// `Ícone de coração. Ir para tela de favoritos`
+  String get semantic_label_icon_button_favorite {
+    return Intl.message(
+      'Ícone de coração. Ir para tela de favoritos',
+      name: 'semantic_label_icon_button_favorite',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Voltar para o início da lista de personagens`
+  String get semantic_label_floating_action_button {
+    return Intl.message(
+      'Voltar para o início da lista de personagens',
+      name: 'semantic_label_floating_action_button',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<MarvelStrings> {

@@ -16,5 +16,11 @@
   "message_no_favorite_characters": "No favorite characters",
   "comics_text": "Comics:",
   "favorite_text": "Favorite",
-  "unfavorite_text": "Unfavorite"
+  "unfavorite_text": "Unfavorite",
+  "semantic_label_icon_error": "Error icon",
+  "semantic_label_icon_network_error": "Internet error icon",
+  "semantic_label_loading_text": "Loading...",
+  "semantic_label_card_primary_action": "Character card {name} clicked. Navigate to detail screen",
+  "semantic_label_icon_button_favorite": "Heart icon. Navigate to favorites screen",
+  "semantic_label_floating_action_button": "Back to the top of the character list"
 }

@@ -20,6 +20,9 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en_US';
 
+  static String m0(name) =>
+      "Character card ${name} clicked. Navigate to detail screen";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "app_bar_title_character_details_screen":
@@ -42,6 +45,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "message_try_again": MessageLookupByLibrary.simpleMessage("Try again"),
         "message_trying_again":
             MessageLookupByLibrary.simpleMessage("Trying again..."),
+        "semantic_label_card_primary_action": m0,
+        "semantic_label_floating_action_button":
+            MessageLookupByLibrary.simpleMessage(
+                "Back to the top of the character list"),
+        "semantic_label_icon_button_favorite":
+            MessageLookupByLibrary.simpleMessage(
+                "Heart icon. Navigate to favorites screen"),
+        "semantic_label_icon_error":
+            MessageLookupByLibrary.simpleMessage("Error icon"),
+        "semantic_label_icon_network_error":
+            MessageLookupByLibrary.simpleMessage("Internet error icon"),
+        "semantic_label_loading_text":
+            MessageLookupByLibrary.simpleMessage("Loading..."),
         "unfavorite_text": MessageLookupByLibrary.simpleMessage("Unfavorite")
       };
 }
