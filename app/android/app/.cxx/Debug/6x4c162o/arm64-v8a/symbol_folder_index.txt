@@ -1,0 +1,1 @@
+/Users/ritamonteiro/Documents/projects/marvel_app_flutter/app/build/app/intermediates/cxx/Debug/6x4c162o/obj/arm64-v8a
