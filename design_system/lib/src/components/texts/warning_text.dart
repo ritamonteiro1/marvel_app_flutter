@@ -18,6 +18,7 @@ class WarningText extends StatelessWidget {
     final typography = theme.extension<MarvelTypography>()!;
 
     return Visibility(
+      key: const Key('WarningTextKey'),
       visible: isVisible,
       child: Text(
         message,
