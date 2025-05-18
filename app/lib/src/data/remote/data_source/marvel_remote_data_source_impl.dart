@@ -2,6 +2,7 @@ import 'dart:convert' as convert;
 import 'dart:io';
 
 import 'package:core/core.dart';
+import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 
 import '../../../domain/exceptions/marvel_exceptions.dart';
@@ -93,3 +94,50 @@ class MarvelRemoteDataSourceImpl implements MarvelRemoteDataSource {
     }
   }
 }
+
+// class MarvelRemoteDataSourceImpl implements MarvelRemoteDataSource {
+//   final MarvelMapper _mapper;
+//   final http.Client _httpClient;
+//
+//   MarvelRemoteDataSourceImpl({
+//     required MarvelMapper mapper,
+//     required http.Client httpClient,
+//   })  : _mapper = mapper,
+//         _httpClient = httpClient;
+//
+//   @override
+//   Future<CharacterList> getCharacterList({required int page}) async {
+//     const filePath = 'assets/mock/character_list_mock.json';
+//     try {
+//       final jsonString = await rootBundle.loadString(filePath);
+//       final jsonResponse = convert.jsonDecode(jsonString);
+//       final marvelResponse = MarvelDataResponse.fromJson(jsonResponse);
+//       await Future.delayed(const Duration(seconds: 3));
+//       return _mapper.characterListResponseToDomain(response: marvelResponse);
+//     } catch (e) {
+//       if (e is SocketException) {
+//         throw NetworkErrorException();
+//       }
+//       throw GenericErrorException();
+//     }
+//   }
+//
+//   @override
+//   Future<CharacterDetailsData> getCharacterDetails({
+//     required int characterId,
+//   }) async {
+//     const filePath = 'assets/mock/character_details_mock.json';
+//     try {
+//       final jsonString = await rootBundle.loadString(filePath);
+//       final jsonResponse = convert.jsonDecode(jsonString);
+//       final marvelResponse = MarvelDataResponse.fromJson(jsonResponse);
+//       await Future.delayed(const Duration(seconds: 3));
+//       return _mapper.characterDetailsResponseToDomain(response: marvelResponse);
+//     } catch (e) {
+//       if (e is SocketException) {
+//         throw NetworkErrorException();
+//       }
+//       throw GenericErrorException();
+//     }
+//   }
+// }
