@@ -1,6 +1,7 @@
 import 'package:core/core.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive/hive.dart';
+import 'package:http/http.dart' as http;
 
 import '../../domain/repository/marvel_repository.dart';
 import '../local/data_source/marvel_local_data_source.dart';
@@ -21,6 +22,7 @@ void dataDI() {
     ..registerSingleton<MarvelRemoteDataSource>(
       MarvelRemoteDataSourceImpl(
         mapper: getIt.get<MarvelMapper>(),
+        httpClient: http.Client(),
       ),
     )
     ..registerSingleton<MarvelLocalDataSource>(

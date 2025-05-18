@@ -15,10 +15,13 @@ import 'marvel_remote_data_source.dart';
 
 class MarvelRemoteDataSourceImpl implements MarvelRemoteDataSource {
   final MarvelMapper _mapper;
+  final http.Client _httpClient;
 
   MarvelRemoteDataSourceImpl({
     required MarvelMapper mapper,
-  }) : _mapper = mapper;
+    required http.Client httpClient,
+  })  : _mapper = mapper,
+        _httpClient = httpClient;
 
   @override
   Future<CharacterList> getCharacterList({required int page}) async {
@@ -43,7 +46,7 @@ class MarvelRemoteDataSourceImpl implements MarvelRemoteDataSource {
         },
       );
 
-      final result = await http.get(uri);
+      final result = await _httpClient.get(uri);
       var jsonResponse =
           convert.jsonDecode(result.body) as Map<String, dynamic>;
       final marvelResponse = MarvelDataResponse.fromJson(jsonResponse);
@@ -77,7 +80,7 @@ class MarvelRemoteDataSourceImpl implements MarvelRemoteDataSource {
         },
       );
 
-      final result = await http.get(uri);
+      final result = await _httpClient.get(uri);
       var jsonResponse =
           convert.jsonDecode(result.body) as Map<String, dynamic>;
       final marvelResponse = MarvelDataResponse.fromJson(jsonResponse);
